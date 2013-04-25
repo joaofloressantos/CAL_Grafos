@@ -13,17 +13,17 @@ Map::Map() {
 	this->addVertex(3, "Coimbra", true);
 	this->addVertex(4, "Vila Real", true);
 	this->addVertex(5, "Portalegre", false);
-	this->addVertex(6, "Viseu", false);
-	this->addVertex(7, "Braga", false);
-	this->addVertex(8, "Viana do Castelo", false);
-	this->addVertex(9, "Bragança", false);
-	this->addVertex(10, "Leiria", false);
+	this->addVertex(6, "Viseu", true);
+	this->addVertex(7, "Braga", true);
+	this->addVertex(8, "Viana do Castelo", true);
+	this->addVertex(9, "Bragança", true);
+	this->addVertex(10, "Leiria", true);
 	this->addVertex(11, "Guarda", false);
-	this->addVertex(12, "Santarem", false);
+	this->addVertex(12, "Santarem", true);
 	this->addVertex(13, "Setubal", false);
-	this->addVertex(14, "Beja", false);
-	this->addVertex(15, "Evora", false);
-	this->addVertex(16, "Faro", false);
+	this->addVertex(14, "Beja", true);
+	this->addVertex(15, "Evora", true);
+	this->addVertex(16, "Faro", true);
 	this->addVertex(17, "Aveiro", false);
 	this->addVertex(18, "Castelo Branco", false);
 
@@ -106,20 +106,17 @@ bool Map::addVertex(const int &in, string name, bool hasStore) {
 }
 
 void Map::chooseStore() {
-	vector<Vertex<int>*>::iterator it = vertexSet.begin();
-	vector<Vertex<int>*>::iterator ite = vertexSet.end();
-
 	Zone *v;
-	for (; it != ite; it++) {
+	for (unsigned int a = 0; a < vertexSet.size(); a++) {
 
-		v = (Zone*) &it;
+		v = (Zone*) vertexSet[a];
 		unsigned int i = 0;
 		vector<int> path = this->getPath(1, v->info);
+		int j = path.size() - 1;
 		while (i < v->clients.size()) {
-			int j = path.size() - 1;
 			while (j > -1) {
 				if (((Zone*) (this->getVertex(path[j])))->hasStore) {
-					v->clients[i].storeZone = path[j];
+					v->clients[i].setStoreZone(path[j]);
 					break;
 				} else {
 					j--;

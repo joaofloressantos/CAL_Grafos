@@ -8,11 +8,12 @@ using namespace std;
 class Zone : public Vertex<int> {
 	string name;
 
-	vector<Client> clients;
+
 	static int zoneID;
 	int ID;
 	
 public:
+	vector<Client> clients;
 	bool hasStore;
 	friend class Map;
 	Zone(const int &in, string name, bool hasStore);

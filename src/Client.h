@@ -26,6 +26,7 @@ public:
 	unsigned long getNIF();
 	int getZone();
 	void setZone(int zone);
+	void setStoreZone(int zone);
 };
 
 

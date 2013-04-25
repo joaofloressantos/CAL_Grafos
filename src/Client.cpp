@@ -34,3 +34,9 @@ void Client::setZone(int zone)
 	this->zone = zone;
 }
 
+
+void Client::setStoreZone(int zone)
+{
+	this->storeZone = zone;
+}
+
