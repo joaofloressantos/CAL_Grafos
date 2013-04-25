@@ -128,76 +128,41 @@
  	return true;
  }
 
- void Map::chooseStore(int d) {
- 	Zone *v;
- 	Zone *v1 = ((Zone*)this->getVertex(d));
- 	vector<int> path;
- 	long int total_dist=1000000000000000000;
- 	long int total_vert=1000000000000000000;
- 	for (unsigned int a = 0; a < vertexSet.size(); a++) {
-
- 		v = (Zone*) vertexSet[a];
- 		path = getPath(1,v->getInfo());
- 		int i=0;
- 		while (i<path.size()) {
-
- 			cout << i << endl;
- 			if ( (((Zone*)this->getVertex(path[i]))->hasStore) && (this->getVertex(path[i])->dist <= total_dist)) {
-		//if ()
- 				cout << i << endl;
- 				int j=0;
- 				while (j < v1->clients.size()) {
- 					v1->clients[j].storeZone = path[i];
- 					j++;
- 				}
- 				total_dist =this->getVertex(path[i])->dist;
- 			}
- 			else {
- 				i++;
- 				total_vert++;
- 				total_dist+=this->getVertex(path[i])->dist;
- 			}
- 		}
-
- 	}
+ int Map::chooseStore(int d) {
+	 int vertex=-1;
+	 int dist =INT_INFINITY;
+	 int pathSize =INT_INFINITY;
+	 vector<Vertex<int>*> v1 = this->getVertexSet();
+	 
+	 for (int i=0; i < v1.size(); i++) {
+		 Zone* v = ((Zone*)v1[i]);
+		 
+		 if(i!=d) {
+			
+			if ( (v->dist < dist) && v->hasStore) {
+				
+				dist = v->dist;
+				vertex = v->getInfo();
+				pathSize = this->getPath(d,i+1).size();
+			}
+			if ( (v->dist == dist) && v->hasStore) {
+			
+				if (this->getPath(d,i+1).size() < pathSize ) {
+					
+					dist = v->dist;
+					vertex = v->getInfo();
+					pathSize =this->getPath(d,i+1).size();
+				}
+			}
+		 }
+		
+	 }
+	 
+	 return vertex;
 
  }
-
-template<class T>
-vector<T> Graph<T>::getfloydWarshallPath(const T &origin, const T &dest) {
-
-	int originIndex = -1, destinationIndex = -1;
-
-	for (unsigned int i = 0; i < vertexSet.size(); i++) {
-		if (vertexSet[i]->info == origin)
-			originIndex = i;
-		if (vertexSet[i]->info == dest)
-			destinationIndex = i;
-
-		if (originIndex != -1 && destinationIndex != -1)
-			break;
-	}
-
-	vector<T> res;
-
-	//se nao foi encontrada solucao possivel, retorna lista vazia
-	if (W[originIndex][destinationIndex] == INT_INFINITY)
-		return res;
-
-	res.push_back(vertexSet[originIndex]->info);
-
-	//se houver pontos intermedios...
-	if (P[originIndex][destinationIndex] != -1) {
-		int intermedIndex = P[originIndex][destinationIndex];
-
-		getfloydWarshallPathAux(originIndex, intermedIndex, res);
-
-		res.push_back(vertexSet[intermedIndex]->info);
-
-		getfloydWarshallPathAux(intermedIndex, destinationIndex, res);
-	}
-
-	res.push_back(vertexSet[destinationIndex]->info);
-
-	return res;
-}
+ 
+ 
+ 
+ 
+ 

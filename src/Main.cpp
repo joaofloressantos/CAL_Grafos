@@ -13,37 +13,39 @@ using namespace std;
  int main()
  {
  	Map graph;
-	int d = 5;
+	int d = 4;
 	int op;
 	
-	/*cout << "Menu" << endl;
+	cout << "Menu" << endl;
 	cout << "1 - Load default map" << endl;
 	cout << "2 - Load map from file" << endl;
 	
-	cin << op;
+	cin >> op;
 	
-	if (op == 1) {*/
+	if (op == 1) {
 		
 		graph.setDefault();
-	/*}
-	else if (op == 2) {*/
-		saveMap(graph);	
+	}
+	else if (op == 2) {	
 		graph = loadMap();
-	/*}
+	}
  	
  	cout << endl << "Insert vertex index to find nearest store: ";
 	
-	cin << d;
+	cin >> d;
 	
-	while (d > graph.getVertexSet.size()) {
-		cout << endl << "Insert value lower than " << graph.getVertexSet.size()+1 << ": ";
-		cin << d;
-	}*/
+	while ( (d > graph.getVertexSet().size()) || (d<=0)) {
+		cout << endl << "Insert value lower than " << graph.getVertexSet().size()+1 << ": ";
+		cin >> d;
+	}
 	
-	cout << "AS;DJLHASKDGAKJSDGAKDGAKJDG:        " << graph.floydWarshallShortestPath(d) << endl;
- 	
- 	//graph.chooseStore(d);
 	
+ 	graph.dijkstraShortestPath(d);
+ 	int store = graph.chooseStore(d);
+	
+	for (int i=0; i < ((Zone*)graph.getVertex(d))->clients.size();i++) {
+		((Zone*)graph.getVertex(d))->clients[i].storeZone = store;
+	}
 	GraphViewer *gv = new GraphViewer(800, 800, true);
 	gv->createWindow(600, 600);
 	gv->defineVertexColor("blue"); //define vertex blue
@@ -62,12 +64,12 @@ using namespace std;
 		}
 	}
 	gv->setVertexColor(d, "green");
-	
-	//vector<int> path = graph.getPath(1,4);
-	
-	cout << vs[d-1]->getInfo() << "|" << ((Zone*)vs[d-1])->clients[0].storeZone << endl;
+	gv->setVertexColor(store, "red");
 	
 	gv->rearrange();
+	
+	cout << "Closest store is at vertex: " << store << endl;
+	saveMap(graph);
 	
 	
  }
