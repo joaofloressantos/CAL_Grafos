@@ -22,6 +22,6 @@ public:
 	bool checkStore();
 	string getName();
 	void setStore(bool hasStore);
-	int getZoneID();
+	int getID();
 };
 

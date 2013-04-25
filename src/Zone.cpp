@@ -48,7 +48,7 @@ void Zone::setStore(bool hasStore)
 	this->hasStore = hasStore;
 }
 
-int Zone::getZoneID()
+int Zone::getID()
 {
 	return ID;
 }
