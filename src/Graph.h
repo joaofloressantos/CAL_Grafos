@@ -149,12 +149,14 @@ void Vertex<T>::updateEdgeFlow(unsigned int index, float f) {
 template<class T>
 class Edge {
 
-	Vertex<T> * orig;
 
-	double flow;
+
+
 public:
-	double weight;
 	Vertex<T> * dest;
+	Vertex<T> * orig;
+	double weight;
+	double flow;
 	Edge(Vertex<T> *d, double w, double f = 0);
 	double getFlow() const;
 	double getWeight() const;

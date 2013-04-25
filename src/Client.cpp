@@ -12,6 +12,7 @@ Client::Client(string name, unsigned long NIF)
 	this->name = name;
 	this->NIF = NIF;
 	zone = -1;
+	storeZone = -1;
 }
 
 string Client::getName()

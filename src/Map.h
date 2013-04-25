@@ -15,7 +15,7 @@ public:
 	Map();
 	bool addVertex(const int &in, string name, bool hasStore);
 	void createCustomMap();
-	//void dijkstraShortestPath(const int &s);
+	void dijkstraShortestPath(const int &s);
 };
 
 

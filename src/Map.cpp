@@ -6,8 +6,7 @@
  */
 #include "Map.h"
 
-Map::Map()
-{
+Map::Map() {
 
 	this->addVertex(1, "Porto", true);
 	this->addVertex(2, "Lisboa", false);
@@ -33,6 +32,7 @@ Map::Map()
 	this->addEdge(3, 4, 3);
 	this->addEdge(4, 5, 5);
 	this->addEdge(1, 5, 2);
+	this->addEdge(5, 6, 3);
 	this->addEdge(6, 7, 2);
 	this->addEdge(7, 8, 2);
 	this->addEdge(8, 9, 2);
@@ -50,17 +50,17 @@ Map::Map()
 	this->addEdge(2, 18, 4);
 	this->addEdge(2, 17, 3);
 	this->addEdge(16, 3, 2);
-	this->addEdge(5, 15, 9);
+	this->addEdge(5, 15, 10);
 	this->addEdge(6, 12, 2);
 	this->addEdge(7, 13, 2);
 	this->addEdge(8, 14, 1);
 	this->addEdge(8, 11, 1);
 	this->addEdge(9, 11, 7);
 	this->addEdge(9, 10, 2);
+	this->addEdge(10, 9, 2);
 }
 
-void Map::createCustomMap()
-{
+void Map::createCustomMap() {
 
 }
 
@@ -74,9 +74,10 @@ bool Map::addVertex(const int &in, string name, bool hasStore) {
 	vertexSet.push_back(v1);
 	return true;
 }
-/*
+
 void Map::dijkstraShortestPath(const int &s) {
 
+	bool found = false;
 
 	for (unsigned int i = 0; i < vertexSet.size(); i++) {
 		vertexSet[i]->path = NULL;
@@ -84,7 +85,7 @@ void Map::dijkstraShortestPath(const int &s) {
 		vertexSet[i]->processing = false;
 	}
 
-	Zone* v = getVertex(s);
+	Zone* v = (Zone*) getVertex(s);
 	v->dist = 0;
 
 	vector<Vertex<int>*> pq;
@@ -94,28 +95,28 @@ void Map::dijkstraShortestPath(const int &s) {
 
 	while (!pq.empty()) {
 
-		v = pq.front();
+		v = (Zone*) pq.front();
 		pop_heap(pq.begin(), pq.end());
 		pq.pop_back();
 
 		for (unsigned int i = 0; i < v->adj.size(); i++) {
-			Zone* w = v->adj[i].dest;
+			Zone* w = (Zone*) (v->adj[i].dest);
 
-			if ((v->dist + v->adj[i].weight < w->dist) && (v->hasStore)) {
+			if (v->dist + v->adj[i].weight < w->dist) {
 
 				w->dist = v->dist + v->adj[i].weight;
 				w->path = v;
 
-				//se ja estiver na lista, apenas a actualiza
-				if (!w->processing) {
-					w->processing = true;
-					pq.push_back(w);
-				}
-
-				make_heap(pq.begin(), pq.end(), vertex_greater_than<int>());
 			}
+
+			//se ja estiver na lista, apenas a actualiza
+			if (!w->processing) {
+				w->processing = true;
+				pq.push_back(w);
+			}
+
+			make_heap(pq.begin(), pq.end(), vertex_greater_than<int>());
 		}
 	}
-}*/
-
+}
 

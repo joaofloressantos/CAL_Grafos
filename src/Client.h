@@ -17,6 +17,7 @@ class Client{
 	string name;
 	unsigned long NIF;
 	int zone;
+	int storeZone;
 
 public:
 	Client(string name, unsigned long NIF);
