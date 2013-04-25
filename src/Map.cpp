@@ -91,6 +91,26 @@ void Map::setDefault()
 	this->addEdge(11, 8, 1);
 	this->addEdge(11, 9, 7);
 	this->addEdge(9, 10, 2);
+
+	//Clients
+	((Zone*)this->getVertex(1))->addClient(Client("Dat client", 1234234234));
+ 	((Zone*)this->getVertex(2))->addClient(Client("Dat1 client", 1234234234));
+ 	((Zone*)this->getVertex(3))->addClient(Client("Dat2 client", 1234234234));
+ 	((Zone*)this->getVertex(4))->addClient(Client("Dat3 client", 1234234234));
+ 	((Zone*)this->getVertex(5))->addClient(Client("Da4t client", 1234234234));
+ 	((Zone*)this->getVertex(6))->addClient(Client("Dat5 client", 1234234234));
+ 	((Zone*)this->getVertex(7))->addClient(Client("Da6t client", 1234234234));
+ 	((Zone*)this->getVertex(8))->addClient(Client("Dat7 client", 1234234234));
+ 	((Zone*)this->getVertex(9))->addClient(Client("Dat8 client", 1234234234));
+ 	((Zone*)this->getVertex(10))->addClient(Client("D1at client", 1234234234));
+ 	((Zone*)this->getVertex(11))->addClient(Client("Dat44 client", 1234234234));
+ 	((Zone*)this->getVertex(12))->addClient(Client("Dat55 client", 1234234234));
+ 	((Zone*)this->getVertex(13))->addClient(Client("Dat99 client", 1234234234));
+ 	((Zone*)this->getVertex(14))->addClient(Client("Dat43 client", 1234234234));
+ 	((Zone*)this->getVertex(15))->addClient(Client("Dat32 client", 1234234234));
+ 	((Zone*)this->getVertex(16))->addClient(Client("Dat688 21client", 1234234234));
+ 	((Zone*)this->getVertex(17))->addClient(Client("Dat987 client", 1234234234));
+ 	((Zone*)this->getVertex(18))->addClient(Client("Dat123 client", 123423234));
 }
 
 bool Map::addVertex(const int &in, string name, bool hasStore) {

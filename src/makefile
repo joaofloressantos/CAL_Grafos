@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-I.
-DEPS = Client.h Graph.h Map.h Zone.h
+DEPS = Client.h Graph.h Map.h Zone.h Files.h
 
 %.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
