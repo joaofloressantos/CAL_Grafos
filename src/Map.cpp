@@ -27,6 +27,7 @@ Map::Map() {
 	this->addVertex(17, "Aveiro", false);
 	this->addVertex(18, "Castelo Branco", false);
 
+	//One way
 	this->addEdge(1, 2, 2);
 	this->addEdge(2, 3, 7);
 	this->addEdge(3, 4, 3);
@@ -47,7 +48,6 @@ Map::Map() {
 	this->addEdge(17, 18, 32);
 	this->addEdge(18, 1, 12);
 	this->addEdge(18, 2, 1);
-	this->addEdge(2, 18, 4);
 	this->addEdge(2, 17, 3);
 	this->addEdge(16, 3, 2);
 	this->addEdge(5, 15, 10);
@@ -56,8 +56,38 @@ Map::Map() {
 	this->addEdge(8, 14, 1);
 	this->addEdge(8, 11, 1);
 	this->addEdge(9, 11, 7);
-	this->addEdge(9, 10, 2);
 	this->addEdge(10, 9, 2);
+
+	//other way
+	this->addEdge(2, 1, 2);
+	this->addEdge(3, 2, 7);
+	this->addEdge(4, 3, 3);
+	this->addEdge(5, 4, 5);
+	this->addEdge(5, 1, 2);
+	this->addEdge(6, 5, 3);
+	this->addEdge(7, 6, 2);
+	this->addEdge(8, 7, 2);
+	this->addEdge(9, 8, 2);
+	this->addEdge(10, 9, 2);
+	this->addEdge(11, 10, 2);
+	this->addEdge(12, 11, 33);
+	this->addEdge(13, 12, 11);
+	this->addEdge(14, 13, 5);
+	this->addEdge(15, 14, 3);
+	this->addEdge(16, 15, 5);
+	this->addEdge(17, 16, 8);
+	this->addEdge(18, 17, 32);
+	this->addEdge(1, 18, 12);
+	this->addEdge(2, 18, 1);
+	this->addEdge(17, 2, 3);
+	this->addEdge(3, 16, 2);
+	this->addEdge(15, 5, 10);
+	this->addEdge(12, 6, 2);
+	this->addEdge(13, 7, 2);
+	this->addEdge(14, 8, 1);
+	this->addEdge(11, 8, 1);
+	this->addEdge(11, 9, 7);
+	this->addEdge(9, 10, 2);
 }
 
 void Map::createCustomMap() {
@@ -75,48 +105,29 @@ bool Map::addVertex(const int &in, string name, bool hasStore) {
 	return true;
 }
 
-void Map::dijkstraShortestPath(const int &s) {
+void Map::chooseStore() {
+	vector<Vertex<int>*>::iterator it = vertexSet.begin();
+	vector<Vertex<int>*>::iterator ite = vertexSet.end();
 
-	bool found = false;
+	Zone *v;
+	for (; it != ite; it++) {
 
-	for (unsigned int i = 0; i < vertexSet.size(); i++) {
-		vertexSet[i]->path = NULL;
-		vertexSet[i]->dist = INT_INFINITY;
-		vertexSet[i]->processing = false;
-	}
-
-	Zone* v = (Zone*) getVertex(s);
-	v->dist = 0;
-
-	vector<Vertex<int>*> pq;
-	pq.push_back(v);
-
-	make_heap(pq.begin(), pq.end());
-
-	while (!pq.empty()) {
-
-		v = (Zone*) pq.front();
-		pop_heap(pq.begin(), pq.end());
-		pq.pop_back();
-
-		for (unsigned int i = 0; i < v->adj.size(); i++) {
-			Zone* w = (Zone*) (v->adj[i].dest);
-
-			if (v->dist + v->adj[i].weight < w->dist) {
-
-				w->dist = v->dist + v->adj[i].weight;
-				w->path = v;
-
+		v = (Zone*) &it;
+		unsigned int i = 0;
+		vector<int> path = this->getPath(1, v->info);
+		while (i < v->clients.size()) {
+			int j = path.size() - 1;
+			while (j > -1) {
+				if (((Zone*) (this->getVertex(path[j])))->hasStore) {
+					v->clients[i].storeZone = path[j];
+					break;
+				} else {
+					j--;
+				}
 			}
-
-			//se ja estiver na lista, apenas a actualiza
-			if (!w->processing) {
-				w->processing = true;
-				pq.push_back(w);
-			}
-
-			make_heap(pq.begin(), pq.end(), vertex_greater_than<int>());
+			i++;
 		}
 	}
+
 }
 

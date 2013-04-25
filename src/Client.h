@@ -17,9 +17,10 @@ class Client{
 	string name;
 	unsigned long NIF;
 	int zone;
-	int storeZone;
 
 public:
+
+	int storeZone;
 	Client(string name, unsigned long NIF);
 	string getName();
 	unsigned long getNIF();
