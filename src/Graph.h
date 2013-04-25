@@ -6,6 +6,7 @@
 
 #include <vector>
 #include <queue>
+#include <stdlib.h> 
 #include <list>
 #include <string>
 #include <limits.h>

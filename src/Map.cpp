@@ -7,7 +7,10 @@
 #include "Map.h"
 
 Map::Map() {
+}
 
+void Map::setDefault()
+{
 	this->addVertex(1, "Porto", true);
 	this->addVertex(2, "Lisboa", false);
 	this->addVertex(3, "Coimbra", true);
@@ -88,10 +91,6 @@ Map::Map() {
 	this->addEdge(11, 8, 1);
 	this->addEdge(11, 9, 7);
 	this->addEdge(9, 10, 2);
-}
-
-void Map::createCustomMap() {
-
 }
 
 bool Map::addVertex(const int &in, string name, bool hasStore) {

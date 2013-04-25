@@ -9,7 +9,7 @@
 
 using namespace std;
 
-int Zone::zoneID = 0;
+int Zone::zoneID = 1;
 
 Zone::Zone(const int &in, string name, bool hasStore):Vertex<int>(in) {
 	this->name = name;

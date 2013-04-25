@@ -14,7 +14,7 @@ class Map : public Graph<int>{
 public:
 	Map();
 	bool addVertex(const int &in, string name, bool hasStore);
-	void createCustomMap();
+	void setDefault();
 	void chooseStore();
 };
 
