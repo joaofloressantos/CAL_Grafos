@@ -124,12 +124,42 @@ bool Map::addVertex(const int &in, string name, bool hasStore) {
 	return true;
 }
 
-void Map::chooseStore() {
+void Map::chooseStore(int d) {
 	Zone *v;
+	Zone *v1 = ((Zone*)this->getVertex(d));
+	vector<int> path;
+	long int total_dist=1000000000000000000;
+	long int total_vert=1000000000000000000;
 	for (unsigned int a = 0; a < vertexSet.size(); a++) {
 
 		v = (Zone*) vertexSet[a];
-		unsigned int i = 0;
+		path = getPath(1,v->getInfo());
+		int i=0;
+		while (i<path.size()) {
+			
+		cout << i << endl;
+			if ( (((Zone*)this->getVertex(path[i]))->hasStore) && (this->getVertex(path[i])->dist <= total_dist)) {
+				//if ()
+				cout << i << endl;
+				int j=0;
+				while (j < v1->clients.size()) {
+					v1->clients[j].storeZone = path[i];
+					j++;
+				}
+				total_dist =this->getVertex(path[i])->dist;
+			}
+			else {
+				i++;
+				total_vert++;
+				total_dist+=this->getVertex(path[i])->dist;
+			}
+		}
+		
+	}
+
+}
+
+/*unsigned int i = 0;
 		vector<int> path = this->getPath(1, v->info);
 		int j = path.size() - 1;
 		while (i < v->clients.size()) {
@@ -142,8 +172,5 @@ void Map::chooseStore() {
 				}
 			}
 			i++;
-		}
-	}
-
-}
+		}*/
 

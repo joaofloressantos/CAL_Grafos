@@ -15,7 +15,7 @@ public:
 	Map();
 	bool addVertex(const int &in, string name, bool hasStore);
 	void setDefault();
-	void chooseStore();
+	void chooseStore(int d);
 };
 
 
