@@ -40,9 +40,9 @@ using namespace std;
 		cin << d;
 	}*/
 	
-	graph.dijkstraShortestPath(d);
+	cout << "AS;DJLHASKDGAKJSDGAKDGAKJDG:        " << graph.floydWarshallShortestPath(d) << endl;
  	
- 	graph.chooseStore(d);
+ 	//graph.chooseStore(d);
 	
 	GraphViewer *gv = new GraphViewer(800, 800, true);
 	gv->createWindow(600, 600);

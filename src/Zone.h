@@ -13,6 +13,7 @@ class Zone : public Vertex<int> {
 	int ID;
 	
 public:
+	static void resetID();
 	vector<Client> clients;
 	bool hasStore;
 	friend class Map;

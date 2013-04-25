@@ -79,6 +79,8 @@ Map loadMap()
 	int ires1, ires2, ires3;
 	string sres1, sres2, sres3;
 
+	Zone::resetID();
+
 	//Load Zones
 	zones.open ("zones.txt");
 	while (zones.good())

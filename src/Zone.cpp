@@ -24,6 +24,11 @@ void Zone::addClient(Client c)
 	clients.push_back(c);
 }
 
+void Zone::resetID()
+{
+	zoneID = 1;
+}
+
 void Zone::removeClient(unsigned long NIF)
 {
 	for (unsigned int i = 0; i < clients.size(); i++)
