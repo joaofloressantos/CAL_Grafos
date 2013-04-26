@@ -1,9 +1,9 @@
-CC=gcc
+CC=g++
 CFLAGS=-I.
-DEPS = Client.h Graph.h Map.h Zone.h Files.h connection.h edgetype.h graphviewer.h
+DEPS = Client.h Graph.h Map.h Zone.h Files.h Connection.h Edgetype.h Graphviewer.h
 
 %.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-all: Client.o Main.o Map.o Zone.o connection.o graphviewer.o
-	g++ -o cal Client.o Main.o Map.o Zone.o connection.o graphviewer.o -I.
+all: Client.o Main.o Map.o Zone.o Connection.o Graphviewer.o
+	g++ -o cal Client.o Main.o Map.o Zone.o Connection.o Graphviewer.o -I.

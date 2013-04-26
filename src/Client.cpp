@@ -2,7 +2,7 @@
  * Client.cpp
  *
  *  Created on: 23 Apr 2013
- *      Author: Jo„o
+ *      Author: Jo√£o
  */
 
 #include "Client.h"
