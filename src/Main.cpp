@@ -30,7 +30,7 @@ using namespace std;
  		graph = loadMap();
  	}
  	
- 	cout << endl << "Insert vertex index to find nearest store: ";
+ 	cout << endl << "Insert Zone ID to find nearest store: ";
 
  	cin >> d;
 
@@ -101,6 +101,16 @@ using namespace std;
 	
 	cout << "Closest store is at vertex: " << store << endl;
 	saveMap(graph);
+
+	cout << endl << endl << "--------------Vertex Meanings--------------" << endl
+		<< "RED: Store location" << endl
+		<< "GREEN: Starting zone" << endl
+		<< "CYAN: Store location and Starting Zone match" << endl
+		<< "BLUE: Zone with no store" << endl
+		<< "YELLOW: Zone with store" << endl << endl
+		<< endl << endl << "---------------Edge Meanings---------------" <<endl
+		<< "BLACK: Regular edge" <<endl
+		<< "RED: Path to Store" << endl << endl << endl;
 	
 	
 }
