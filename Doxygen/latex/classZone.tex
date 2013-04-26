@@ -1,0 +1,168 @@
+\hypertarget{classZone}{\section{Zone Class Reference}
+\label{classZone}\index{Zone@{Zone}}
+}
+
+
+Represents a \hyperlink{classZone}{Zone} in which there may or may not be a store.  
+
+
+
+
+{\ttfamily \#include $<$Zone.\-h$>$}
+
+Inheritance diagram for Zone\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classZone}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classZone_a240ae395a9b19a9822667772f7fa3b28}{Zone} (const int \&in, string name, bool has\-Store)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classZone}{Zone} constructor. \end{DoxyCompactList}\item 
+void \hyperlink{classZone_a2a3407fdaaaa3926be04cdf7294750ac}{add\-Client} (\hyperlink{classClient}{Client} c)
+\begin{DoxyCompactList}\small\item\em Adds a client to the \hyperlink{classZone}{Zone} client vector. \end{DoxyCompactList}\item 
+\hypertarget{classZone_a4af37f9d0b95ac5efd5930c5d3a237bf}{void {\bfseries remove\-Client} (unsigned long N\-I\-F)}\label{classZone_a4af37f9d0b95ac5efd5930c5d3a237bf}
+
+\item 
+bool \hyperlink{classZone_ac96cd131db38f2e28da929a7f7b0db00}{check\-Store} ()
+\begin{DoxyCompactList}\small\item\em Checks if the \hyperlink{classZone}{Zone} has a store. \end{DoxyCompactList}\item 
+string \hyperlink{classZone_a94bcfd6622d27041130bb1d56021e557}{get\-Name} ()
+\begin{DoxyCompactList}\small\item\em Checks if the \hyperlink{classZone}{Zone} has a store. \end{DoxyCompactList}\item 
+void \hyperlink{classZone_afffd33b4006d092866f9cd99d67070c4}{set\-Store} (bool has\-Store)
+\begin{DoxyCompactList}\small\item\em Sets the store status in a \hyperlink{classZone}{Zone}. \end{DoxyCompactList}\item 
+int \hyperlink{classZone_a40d5df046e49023ac0f9376c645573b2}{get\-I\-D} ()
+\begin{DoxyCompactList}\small\item\em Checks if the \hyperlink{classZone}{Zone} has a store. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classZone_a334033d0188c5ad5d79e1940e468a667}{static void \hyperlink{classZone_a334033d0188c5ad5d79e1940e468a667}{reset\-I\-D} ()}\label{classZone_a334033d0188c5ad5d79e1940e468a667}
+
+\begin{DoxyCompactList}\small\item\em Resets I\-D counter. Used when graph is loaded. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classZone_a6a9280bd93f5f5edd83c57cec77fdcd6}{vector$<$ \hyperlink{classClient}{Client} $>$ {\bfseries clients}}\label{classZone_a6a9280bd93f5f5edd83c57cec77fdcd6}
+
+\item 
+\hypertarget{classZone_a2a23da1e70eea3831a0fa1901e47e342}{bool {\bfseries has\-Store}}\label{classZone_a2a23da1e70eea3831a0fa1901e47e342}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classZone_ad2f32e921244459f7cc6d50355429cc6}{class {\bfseries Map}}\label{classZone_ad2f32e921244459f7cc6d50355429cc6}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Represents a \hyperlink{classZone}{Zone} in which there may or may not be a store. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classZone_a240ae395a9b19a9822667772f7fa3b28}{\index{Zone@{Zone}!Zone@{Zone}}
+\index{Zone@{Zone}!Zone@{Zone}}
+\subsubsection[{Zone}]{\setlength{\rightskip}{0pt plus 5cm}Zone\-::\-Zone (
+\begin{DoxyParamCaption}
+\item[{const int \&}]{in, }
+\item[{string}]{name, }
+\item[{bool}]{has\-Store}
+\end{DoxyParamCaption}
+)}}\label{classZone_a240ae395a9b19a9822667772f7fa3b28}
+
+
+\hyperlink{classZone}{Zone} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & \hyperlink{classVertex}{Vertex} I\-D \\
+\hline
+{\em name} & \hyperlink{classZone}{Zone} name \\
+\hline
+{\em has\-Store} & Indicates if the \hyperlink{classZone}{Zone} has a store \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classZone_a2a3407fdaaaa3926be04cdf7294750ac}{\index{Zone@{Zone}!add\-Client@{add\-Client}}
+\index{add\-Client@{add\-Client}!Zone@{Zone}}
+\subsubsection[{add\-Client}]{\setlength{\rightskip}{0pt plus 5cm}void Zone\-::add\-Client (
+\begin{DoxyParamCaption}
+\item[{{\bf Client}}]{c}
+\end{DoxyParamCaption}
+)}}\label{classZone_a2a3407fdaaaa3926be04cdf7294750ac}
+
+
+Adds a client to the \hyperlink{classZone}{Zone} client vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The client \\
+\hline
+\end{DoxyParams}
+\hypertarget{classZone_ac96cd131db38f2e28da929a7f7b0db00}{\index{Zone@{Zone}!check\-Store@{check\-Store}}
+\index{check\-Store@{check\-Store}!Zone@{Zone}}
+\subsubsection[{check\-Store}]{\setlength{\rightskip}{0pt plus 5cm}bool Zone\-::check\-Store (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classZone_ac96cd131db38f2e28da929a7f7b0db00}
+
+
+Checks if the \hyperlink{classZone}{Zone} has a store. 
+
+\begin{DoxyReturn}{Returns}
+True if the \hyperlink{classZone}{Zone} has a store. False if the zone has no store. 
+\end{DoxyReturn}
+\hypertarget{classZone_a40d5df046e49023ac0f9376c645573b2}{\index{Zone@{Zone}!get\-I\-D@{get\-I\-D}}
+\index{get\-I\-D@{get\-I\-D}!Zone@{Zone}}
+\subsubsection[{get\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}int Zone\-::get\-I\-D (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classZone_a40d5df046e49023ac0f9376c645573b2}
+
+
+Checks if the \hyperlink{classZone}{Zone} has a store. 
+
+\begin{DoxyReturn}{Returns}
+True if the \hyperlink{classZone}{Zone} has a store. False if the zone has no store. 
+\end{DoxyReturn}
+\hypertarget{classZone_a94bcfd6622d27041130bb1d56021e557}{\index{Zone@{Zone}!get\-Name@{get\-Name}}
+\index{get\-Name@{get\-Name}!Zone@{Zone}}
+\subsubsection[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}string Zone\-::get\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classZone_a94bcfd6622d27041130bb1d56021e557}
+
+
+Checks if the \hyperlink{classZone}{Zone} has a store. 
+
+\begin{DoxyReturn}{Returns}
+True if the \hyperlink{classZone}{Zone} has a store. False if the zone has no store. 
+\end{DoxyReturn}
+\hypertarget{classZone_afffd33b4006d092866f9cd99d67070c4}{\index{Zone@{Zone}!set\-Store@{set\-Store}}
+\index{set\-Store@{set\-Store}!Zone@{Zone}}
+\subsubsection[{set\-Store}]{\setlength{\rightskip}{0pt plus 5cm}void Zone\-::set\-Store (
+\begin{DoxyParamCaption}
+\item[{bool}]{has\-Store}
+\end{DoxyParamCaption}
+)}}\label{classZone_afffd33b4006d092866f9cd99d67070c4}
+
+
+Sets the store status in a \hyperlink{classZone}{Zone}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em has\-Store} & Store status. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Zone.\-h\item 
+Zone.\-cpp\end{DoxyCompactItemize}

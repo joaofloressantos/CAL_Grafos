@@ -1,0 +1,88 @@
+\hypertarget{classMap}{\section{Map Class Reference}
+\label{classMap}\index{Map@{Map}}
+}
+
+
+Represents map. Inherits \hyperlink{classGraph}{Graph} class.  
+
+
+
+
+{\ttfamily \#include $<$Map.\-h$>$}
+
+Inheritance diagram for Map\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMap}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMap_a0f5ad0fd4563497b4214038cbca8b582}{\hyperlink{classMap_a0f5ad0fd4563497b4214038cbca8b582}{Map} ()}\label{classMap_a0f5ad0fd4563497b4214038cbca8b582}
+
+\begin{DoxyCompactList}\small\item\em Empty map constructor. Kind of a placeholder. \end{DoxyCompactList}\item 
+bool \hyperlink{classMap_af85ad221d75445dfb341aee1786a3e47}{add\-Vertex} (const int \&in, string name, bool has\-Store)
+\begin{DoxyCompactList}\small\item\em Adds a new \hyperlink{classZone}{Zone} to the map. \end{DoxyCompactList}\item 
+\hypertarget{classMap_abd12f966840ae67ba28106e13fc92067}{void \hyperlink{classMap_abd12f966840ae67ba28106e13fc92067}{set\-Default} ()}\label{classMap_abd12f966840ae67ba28106e13fc92067}
+
+\begin{DoxyCompactList}\small\item\em Sets the \hyperlink{classMap}{Map} as the default map, adding zones, edges and clients. \end{DoxyCompactList}\item 
+int \hyperlink{classMap_a4b728a284793fa3388fd425dcf2d8b09}{choose\-Store} (int d)
+\begin{DoxyCompactList}\small\item\em Returns closest store to given zone specified by d. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Represents map. Inherits \hyperlink{classGraph}{Graph} class. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classMap_af85ad221d75445dfb341aee1786a3e47}{\index{Map@{Map}!add\-Vertex@{add\-Vertex}}
+\index{add\-Vertex@{add\-Vertex}!Map@{Map}}
+\subsubsection[{add\-Vertex}]{\setlength{\rightskip}{0pt plus 5cm}bool Map\-::add\-Vertex (
+\begin{DoxyParamCaption}
+\item[{const int \&}]{in, }
+\item[{string}]{name, }
+\item[{bool}]{has\-Store}
+\end{DoxyParamCaption}
+)}}\label{classMap_af85ad221d75445dfb341aee1786a3e47}
+
+
+Adds a new \hyperlink{classZone}{Zone} to the map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & \hyperlink{classZone}{Zone} I\-D \\
+\hline
+{\em name} & \hyperlink{classZone}{Zone} name \\
+\hline
+{\em has\-Store} & Indicates if the \hyperlink{classZone}{Zone} has a store \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if insertion successful. False if not successful. 
+\end{DoxyReturn}
+\hypertarget{classMap_a4b728a284793fa3388fd425dcf2d8b09}{\index{Map@{Map}!choose\-Store@{choose\-Store}}
+\index{choose\-Store@{choose\-Store}!Map@{Map}}
+\subsubsection[{choose\-Store}]{\setlength{\rightskip}{0pt plus 5cm}int Map\-::choose\-Store (
+\begin{DoxyParamCaption}
+\item[{int}]{d}
+\end{DoxyParamCaption}
+)}}\label{classMap_a4b728a284793fa3388fd425dcf2d8b09}
+
+
+Returns closest store to given zone specified by d. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Given zone \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Closest zone I\-D 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Map.\-h\item 
+Map.\-cpp\end{DoxyCompactItemize}
