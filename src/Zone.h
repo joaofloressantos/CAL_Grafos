@@ -5,10 +5,11 @@ using namespace std;
 
 
 
+/**
+*@brief Represents a Zone in which there may or may not be a store.
+*/
 class Zone : public Vertex<int> {
 	string name;
-
-
 	static int zoneID;
 	int ID;
 	

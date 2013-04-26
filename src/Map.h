@@ -10,6 +10,9 @@
 
 #include "Zone.h"
 
+/**
+*@brief Represents map. Inherits Graph class. 
+*/
 class Map : public Graph<int>{
 public:
 	Map();

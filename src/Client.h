@@ -1,9 +1,4 @@
-/*
- * Client.h
- *
- *  Created on: 23 Apr 2013
- *      Author: Jo�o
- */
+
 
 #ifndef CLIENT_H_
 #define CLIENT_H_
@@ -13,6 +8,9 @@
 
 using namespace std;
 
+/**
+ *@brief  Represests a client in the graph. Stores name, NIF, zone and store zone.
+ */
 class Client{
 	string name;
 	unsigned long NIF;

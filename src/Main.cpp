@@ -6,9 +6,8 @@
 using namespace std;
 
 /**
- * Creates a graph
- *
- * @return a graph
+ * @brief Main program function.
+ * Creates or loads a Map, asks for a zone to find a store and returns either the zone if it has a store or the path to the closest zone that has a store. Shows a map with the initial zone and final zone.
  */
  int main()
  {

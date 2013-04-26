@@ -6,9 +6,15 @@
  */
 #include "Map.h"
 
+/**
+*@brief Empty map constructor. Kind of a placeholder
+*/
  Map::Map() {
  }
 
+/**
+*@brief Sets the Map as the default map, adding zones, edges and clients.
+*/
  void Map::setDefault()
  {
  	this->addVertex(1, "Porto", true);
@@ -93,26 +99,33 @@
  	this->addEdge(9, 10, 2);
 
 	//Clients
- 	((Zone*)this->getVertex(1))->addClient(Client("Dat client", 1234234234));
- 	((Zone*)this->getVertex(2))->addClient(Client("Dat1 client", 1234234234));
- 	((Zone*)this->getVertex(3))->addClient(Client("Dat2 client", 1234234234));
- 	((Zone*)this->getVertex(4))->addClient(Client("Dat3 client", 1234234234));
- 	((Zone*)this->getVertex(5))->addClient(Client("Da4t client", 1234234234));
- 	((Zone*)this->getVertex(6))->addClient(Client("Dat5 client", 1234234234));
- 	((Zone*)this->getVertex(7))->addClient(Client("Da6t client", 1234234234));
- 	((Zone*)this->getVertex(8))->addClient(Client("Dat7 client", 1234234234));
- 	((Zone*)this->getVertex(9))->addClient(Client("Dat8 client", 1234234234));
- 	((Zone*)this->getVertex(10))->addClient(Client("D1at client", 1234234234));
- 	((Zone*)this->getVertex(11))->addClient(Client("Dat44 client", 1234234234));
- 	((Zone*)this->getVertex(12))->addClient(Client("Dat55 client", 1234234234));
- 	((Zone*)this->getVertex(13))->addClient(Client("Dat99 client", 1234234234));
- 	((Zone*)this->getVertex(14))->addClient(Client("Dat43 client", 1234234234));
- 	((Zone*)this->getVertex(15))->addClient(Client("Dat32 client", 1234234234));
- 	((Zone*)this->getVertex(16))->addClient(Client("Dat688 21client", 1234234234));
- 	((Zone*)this->getVertex(17))->addClient(Client("Dat987 client", 1234234234));
- 	((Zone*)this->getVertex(18))->addClient(Client("Dat123 client", 123423234));
+ 	((Zone*)this->getVertex(1))->addClient(Client("Client 1", 1234234234));
+ 	((Zone*)this->getVertex(2))->addClient(Client("Client 2", 1234234234));
+ 	((Zone*)this->getVertex(3))->addClient(Client("Client 3", 1234234234));
+ 	((Zone*)this->getVertex(4))->addClient(Client("Client 4", 1234234234));
+ 	((Zone*)this->getVertex(5))->addClient(Client("Client 5", 1234234234));
+ 	((Zone*)this->getVertex(6))->addClient(Client("Client 6", 1234234234));
+ 	((Zone*)this->getVertex(7))->addClient(Client("Client 7", 1234234234));
+ 	((Zone*)this->getVertex(8))->addClient(Client("Client 8", 1234234234));
+ 	((Zone*)this->getVertex(9))->addClient(Client("Client 9", 1234234234));
+ 	((Zone*)this->getVertex(10))->addClient(Client("Client 10", 1234234234));
+ 	((Zone*)this->getVertex(11))->addClient(Client("Client 11", 1234234234));
+ 	((Zone*)this->getVertex(12))->addClient(Client("Client 12", 1234234234));
+ 	((Zone*)this->getVertex(13))->addClient(Client("Client 13", 1234234234));
+ 	((Zone*)this->getVertex(14))->addClient(Client("Client 14", 1234234234));
+ 	((Zone*)this->getVertex(15))->addClient(Client("Client 15", 1234234234));
+ 	((Zone*)this->getVertex(16))->addClient(Client("Client 16", 1234234234));
+ 	((Zone*)this->getVertex(17))->addClient(Client("Client 17", 1234234234));
+ 	((Zone*)this->getVertex(18))->addClient(Client("Client 18", 123423234));
  }
 
+/**
+*@brief Adds a new Zone to the map
+*@param in Zone ID
+*@param name Zone name
+*@param hasStore Indicates if the Zone has a store
+*@return True if insertion successful. False if not successful.
+*/
  bool Map::addVertex(const int &in, string name, bool hasStore) {
  	vector<Vertex<int>*>::iterator it = vertexSet.begin();
  	vector<Vertex<int>*>::iterator ite = vertexSet.end();
@@ -128,6 +141,11 @@
  	return true;
  }
 
+/**
+*@brief Returns closest store to given zone specified by d
+*@param d Given zone
+*@return Closest zone ID
+*/
  int Map::chooseStore(int d) {
 	 int vertex=-1;
 	 int dist =INT_INFINITY;

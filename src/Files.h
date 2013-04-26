@@ -5,38 +5,15 @@
 #include <sstream>
 #include <iostream>
 #include <fstream>
+/**
+*@brief Functions for file access
+*
+*/
 
-vector<string> explode( const string &delimiter, const string &str)
-{
-	vector<string> arr;
-
-	int strleng = str.length();
-	int delleng = delimiter.length();
-	if (delleng==0)
-  return arr;//no change
-
-int i=0;
-int k=0;
-while( i<strleng )
-{
-	int j=0;
-	while (i+j<strleng && j<delleng && str[i+j]==delimiter[j])
-		j++;
-  if (j==delleng)//found delimiter
-  {
-  	arr.push_back( str.substr(k, i-k) );
-  	i+=delleng;
-  	k=i;
-  }
-  else
-  {
-  	i++;
-  }
-}
-arr.push_back( str.substr(k, i-k) );
-return arr;
-}
-
+/**
+*@brief Saves graph components to text file
+*@param graph Graph to be saved
+*/
 void saveMap(Map graph)
 {
 	ofstream zones;
@@ -69,6 +46,10 @@ void saveMap(Map graph)
 	edges.close();
 }
 
+/**
+*@brief Loads graph components from text file
+*@return graph Loaded Graph
+*/
 Map loadMap()
 {
 	Map graph;
