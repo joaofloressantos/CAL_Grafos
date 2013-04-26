@@ -50,13 +50,28 @@ using namespace std;
  	gv->createWindow(600, 600);
 	gv->defineVertexColor("blue"); //define vertex blue
 	gv->defineEdgeColor("black"); //define edge black
-	
+
 	vector<Vertex<int>* > vs = graph.getVertexSet();
+
+	cout << "Path to store: ";
+	vector<int> y = graph.getPath(d, store);
+
+	unsigned int i = 0;
+	for(; i < y.size()-1; i++)
+	{
+		cout << y[i] << "->";
+	}
+	cout << y[i] << endl;
+
 	int count = 0;
 	for (int i = 0; i< vs.size(); i++) {
 
 		gv->addNode(vs[i]->getInfo());
 		gv->setVertexLabel(vs[i]->getInfo(),((Zone*)vs[i])->getName());
+		if(((Zone*)vs[i])->checkStore() && ((Zone*)vs[i])->getInfo()!= d)
+		{
+			gv->setVertexColor(vs[i]->getInfo(), "yellow");
+		}
 		for (int j = 0; j < vs[i]->adj.size();j++) {
 			
 			gv->addEdge(count, vs[i]->getInfo(), vs[i]->adj[j].dest->getInfo(), EdgeType::DIRECTED); 
@@ -64,20 +79,23 @@ using namespace std;
 			ss << vs[i]->adj[j].weight;
 			weight = ss.str();
 			gv->setEdgeLabel(count, weight);
+			for(unsigned int k = 0; k<y.size()-1; k++)
+			{
+				if((y[k] == vs[i]->getInfo()) && y[k+1] == (vs[i]->adj[j].dest->getInfo()))
+				{
+					gv->setEdgeColor(count, "red");
+				}
+			}
 			count++;
 		}
 	}
 	gv->setVertexColor(d, "green");
 	gv->setVertexColor(store, "red");
-	
-	cout << "Path to store: ";
-	vector<int> y = graph.getPath(d, store);
-	unsigned int i = 0;
-	for(; i < y.size()-1; i++)
+
+	if(d == store)
 	{
-		cout << y[i] << "->";
+		gv->setVertexColor(d, "cyan");
 	}
-	cout << y[i] << endl;
 
 	gv->rearrange();
 	
